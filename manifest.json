@@ -1,0 +1,38 @@
+{
+	"name": "Amazon Bayesian",
+	"version": "0.1.0",
+	"manifest_version": 2,
+	"content_scripts": [
+		{
+			"matches": [
+				"http://www.amazon.com/s/*",
+				"http://www.amazon.com/gp/search*"
+			],
+			"js": [
+				"js/lib/require.js",
+				"js/requireContent.js",
+				"js/requireConfig.js",
+				"js/content/boot.js"
+			],
+			"css": [
+				"css/content.css"
+			]
+		}
+	],
+	"background": {
+		"scripts": [
+			"js/lib/require.js",
+			"js/requireConfig.js",
+			"js/background/boot.js"
+		]
+	},
+	"web_accessible_resources": [
+		"js/*",
+		"html/*",
+		"css/*",
+		"images/*"
+	],
+	"permissions": [
+		"http://code.jquery.com/"
+	]
+}

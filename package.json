@@ -1,0 +1,9 @@
+{
+	"name": "amazon-bayesian",
+	"version": "0.1.0",
+	"author": "Zach Shipley <zach@zachshipley.com>",
+	"license": "MIT",
+	"dependencies": {
+		"deferreds": "1.x"
+	}
+}
