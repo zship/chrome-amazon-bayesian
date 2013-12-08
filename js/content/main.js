@@ -77,12 +77,14 @@ define(function(require) {
 				url: url,
 				dataType: 'text'
 			}).then(function(data) {
-				var content = data.split('&&&').map(function(obj) {
+				data.split('&&&').map(function(obj) {
 					return obj && JSON.parse(obj);
 				}).filter(function(obj) {
-					return obj && obj.centerBelow;
-				})[0];
-				products = products.concat(parseProducts($(content.centerBelow.data.value)));
+					return (obj.centerBelow || obj.centerBelowMinus || obj.centerBelowPlus);
+				}).forEach(function(obj) {
+					var content = (obj.centerBelow || obj.centerBelowMinus || obj.centerBelowPlus);
+					products = products.concat(parseProducts($(content.data.value)));
+				});
 				//next = $(data).find(nextLinkId).attr('href');
 			});
 		}).then(function() {
